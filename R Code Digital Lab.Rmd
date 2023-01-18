@@ -1,0 +1,61 @@
+---
+title: "Digital product"
+author: "Amir Yousefi Malekrudi"
+date: "2023-01-17"
+output: html_document
+---
+```{r}
+#rm(list = ls())
+FreundlichkeitMitarbeiter= sample(0:100,size=500,replace = T)
+QualitätHaarschnitt= sample(0:100,size=500,replace = T)
+
+EinStern = ifelse((FreundlichkeitMitarbeiter+QualitätHaarschnitt) <= 40, EinStern <- 1, EinStern <-  0)
+ZweiSterne = ifelse((FreundlichkeitMitarbeiter+QualitätHaarschnitt) > 40 & (FreundlichkeitMitarbeiter+QualitätHaarschnitt) <= 80 , ZweiSterne <- 2, ZweiSterne <- 0)
+DreiSterne = ifelse((FreundlichkeitMitarbeiter+QualitätHaarschnitt) > 80 & (FreundlichkeitMitarbeiter+QualitätHaarschnitt) <= 120 , DreiSterne <- 3, DreiSterne <- 0)
+VierSterne = ifelse((FreundlichkeitMitarbeiter+QualitätHaarschnitt) > 120 & (FreundlichkeitMitarbeiter+QualitätHaarschnitt) <= 160 , VierSterne <- 4, VierSterne <- 0)
+FünfSterne = ifelse((FreundlichkeitMitarbeiter+QualitätHaarschnitt) > 160 & (FreundlichkeitMitarbeiter+QualitätHaarschnitt) <= 200 , FünfSterne <- 5, FünfSterne <- 0)
+Sternebewertung = abs(EinStern-ZweiSterne-DreiSterne-VierSterne-FünfSterne)
+
+Datensatz = data.frame(FreundlichkeitMitarbeiter,QualitätHaarschnitt,Sternebewertung)
+
+Teilmenge1 = subset(Datensatz,Sternebewertung == 1)
+Teilmenge2 = subset(Datensatz,Sternebewertung == 2)
+Teilmenge3 = subset(Datensatz,Sternebewertung == 3)
+Teilmenge4 = subset(Datensatz,Sternebewertung == 4)
+Teilmenge5 = subset(Datensatz,Sternebewertung == 5)
+
+RegressionDatensatz = lm(FreundlichkeitMitarbeiter~QualitätHaarschnitt, Datensatz)
+RegressionTeilmenge1 = lm(FreundlichkeitMitarbeiter~QualitätHaarschnitt,Teilmenge1)
+RegressionTeilmenge2 = lm(FreundlichkeitMitarbeiter~QualitätHaarschnitt,Teilmenge2)
+RegressionTeilmenge3 = lm(FreundlichkeitMitarbeiter~QualitätHaarschnitt,Teilmenge3)
+RegressionTeilmenge4 = lm(FreundlichkeitMitarbeiter~QualitätHaarschnitt,Teilmenge4)
+RegressionTeilmenge5 = lm(FreundlichkeitMitarbeiter~QualitätHaarschnitt,Teilmenge5)
+
+par(pch=16)
+
+plot(Datensatz$FreundlichkeitMitarbeiter,Datensatz$QualitätHaarschnitt,xlab="FreundlichkeitMitarbeiter",ylab="QualitätHaarschnitt",main = "Alle Friseursalons")
+abline(RegressionDatensatz, col="red")
+
+plot(Teilmenge1$FreundlichkeitMitarbeiter,Teilmenge1$QualitätHaarschnitt,xlab="FreundlichkeitMitarbeiter",ylab="QualitätHaarschnitt",xlim = c(0,100),ylim = c(0,100),main="Sternebewertung 1")
+abline(RegressionTeilmenge1, col="red")
+
+plot(Teilmenge2$FreundlichkeitMitarbeiter,Teilmenge2$QualitätHaarschnitt,xlab="FreundlichkeitMitarbeiter",ylab="QualitätHaarschnitt",xlim = c(0,100),ylim = c(0,100),main="Sternebewertung 2")
+abline(RegressionTeilmenge2, col="red")
+
+plot(Teilmenge3$FreundlichkeitMitarbeiter,Teilmenge3$QualitätHaarschnitt,xlab="FreundlichkeitMitarbeiter",ylab="QualitätHaarschnitt",xlim = c(0,100),ylim = c(0,100),main="Sternebewertung 3")
+abline(RegressionTeilmenge3, col="red")
+
+plot(Teilmenge4$FreundlichkeitMitarbeiter,Teilmenge4$QualitätHaarschnitt,xlab="FreundlichkeitMitarbeiter",ylab="QualitätHaarschnitt",xlim = c(0,100),ylim = c(0,100),main="Sternebewertung 4")
+abline(RegressionTeilmenge4, col="red")
+
+plot(Teilmenge5$FreundlichkeitMitarbeiter,Teilmenge5$QualitätHaarschnitt,xlab="FreundlichkeitMitarbeiter",ylab="QualitätHaarschnitt",xlim = c(0,100),ylim = c(0,100),main="Sternebewertung 5")
+abline(RegressionTeilmenge5,col="red")
+
+summary(RegressionDatensatz)
+summary(RegressionTeilmenge1)
+summary(RegressionTeilmenge2)
+summary(RegressionTeilmenge3)
+summary(RegressionTeilmenge4)
+summary(RegressionTeilmenge5)
+```
+
