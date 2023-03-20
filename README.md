@@ -1,4 +1,4 @@
-# Collider Bias: The Hairdesser Example <a href="https://digitalcausalitylab.github.io/"><img src="figures/logo.png" align="right" width = "120" /></a>
+# Collider Bias: The Hairdresser Example <a href="https://digitalcausalitylab.github.io/"><img src="figures/logo.png" align="right" width = "120" /></a>
 
 ### Abstract
 
