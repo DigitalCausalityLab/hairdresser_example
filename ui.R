@@ -1,5 +1,6 @@
 library(shiny)
 library(ggdag)
+library(ggplot2)
 library(gt)
 library(broom)
 

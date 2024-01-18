@@ -1,5 +1,6 @@
 library(shiny)
 library(ggdag)
+library(ggplot2)
 
 # Shiny server function
 shinyServer(function(input, output) {
@@ -63,6 +64,6 @@ shinyServer(function(input, output) {
       geom_dag_text(label = c(F = "F", S = "S", Q = "Q"))
     
     # Display the DAG plot
-    print(dag_plot)
+    dag_plot
   })
 })
