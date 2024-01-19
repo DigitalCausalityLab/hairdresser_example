@@ -1,16 +1,16 @@
 #Loading the required packages ####
-packages <- c("shiny","ggplot2", "EnvStats", "shinyWidgets","shinydashboard",
-              "latex2exp","dplyr", "plotly","MASS", "mvtnorm", "gtsummary", "gt", "ggdag", "dagitty")
+library("shiny")
+library("ggplot2")
+library("shinyWidgets")
+library("shinydashboard")
+library("dplyr")
+library("RColorBrewer")
+library("gtsummary")
+library("gt")
+library("ggdag")
+library("dagitty")
 
-#installing new packages
-if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
-  install.packages(setdiff(packages, rownames(installed.packages())))  
-}
-#load and attach packages
-if (length(setdiff(packages,names(sessionInfo()$otherPkgs))) > 0) {
-  lapply(setdiff(packages,names(sessionInfo()$otherPkgs)),
-         require, character.only = TRUE)
-}
+
 
 #defining certain colors and methods ####
 dashboard_skin <- "black"
@@ -25,14 +25,13 @@ linecol2 <- "Forestgreen"
 linecol3 <- "blue"
 linecol4 <- "red"
 
-boxcol_1 <- "danger"
-boxcol_2 <- "primary"
+boxcol_1 <- "primary"
+boxcol_2 <- "success"
 
 #logo ####
 dbHeader <- dashboardHeader()
-dbHeader$children[[2]]$children <-  tags$a(href='https://www.bwl.uni-hamburg.de/statistik',
-                                           tags$img(src='/Users/sauravbania/Stats Job/Fundamental Problem/logo.png',
-                                                    height = 100, width = 200))
+dbHeader$children[[2]]$children <-  tags$a(href='https://digitalcausalitylab.github.io',
+                                           tags$img(src='DCLklein.png',width='90'))
 
 # define the body ####
 body_col <- '/* logo */
@@ -72,3 +71,4 @@ background-color: #ff69b4;
 .content-wrapper, .right-side {
 background-color: #EAEDED;
 }'
+
