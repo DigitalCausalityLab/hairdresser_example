@@ -76,7 +76,7 @@ shinyUI(
                         solidHeader = TRUE,
                         status = "primary",
                         background = "black",
-                        selectInput("option", "Subset of hair salons", c("All salons", "Good review", "Bad review", "Very good review", "Very bad review")),
+                        selectInput("option", "Subset of hair salons", c("All salons","Very good review", "Good review", "Okay", "Bad review",  "Very bad review")),
                         width = 12
                       )),
                       width = 4),

@@ -34,36 +34,24 @@ shinyServer(function(input, output) {
   output$scatterplot <- renderPlot({
     data <- switch(input$option,
                    "All salons" = Datensatz,
-                   "Good review" = Teilmenge5,
-                   "Bad review" = Teilmenge1,
                    "Very good review" = Teilmenge5,
+                   "Good review" = Teilmenge4,
+                   "Okay" = Teilmenge3,
+                   "Bad review" = Teilmenge2,
                    "Very bad review" = Teilmenge1)
     
-    plot(data$FreundlichkeitMitarbeiter, data$QualitaetHaarschnitt, xlab = "FreundlichkeitMitarbeiter", ylab = "QualitaetHaarschnitt")
+    plot(data$FreundlichkeitMitarbeiter, data$QualitaetHaarschnitt, xlab = "Friendliness", ylab = "Quality", xlim = c(0,100),ylim = c(0,100))
     abline(lm(data$FreundlichkeitMitarbeiter ~ data$QualitaetHaarschnitt))
   })
   
   # Render the DAG plot
   output$dag <- renderPlot({
-    data <- switch(input$option,
-                   "All salons" = Datensatz,
-                   "Good review" = Teilmenge5,
-                   "Bad review" = Teilmenge1,
-                   "Very good review" = Teilmenge5,
-                   "Very bad review" = Teilmenge1)
-    
-    # Explicitly specify variable names in DAG formula
-    dag_formula <- "F ~ S + Q"
-    # Parse the formula
-    dag <- dagify(as.formula(dag_formula))
-    
-    # Create DAG plot
-    dag_plot <- ggdag(dag) + theme_dag_blank() +
-      geom_dag_edges(edge_width = 1.5) + 
-      geom_dag_point() +
-      geom_dag_text(label = c(F = "F", S = "S", Q = "Q"))
-    
-    # Display the DAG plot
-    dag_plot
+    if (input$option == "All salons") {
+      dag <- collider_unconditional
+    } else {
+      ## Control for Movie star
+      dag <- collider_conditional
+    }
+    dag
   })
 })
