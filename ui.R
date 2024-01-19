@@ -45,7 +45,7 @@ shinyUI(
                 How do you choose your hairdresser? Many people look at online reviews
                 and go only to top-rated hair salons and then realize: Why are hairdressers never
                 friendly and bad at the same time? Should I better not trust a friendly hairdresser?"),
-                h2("Better don't trust a friendly hairdresser?"),
+                h2("Better Don't Trust a Friendly Hairdresser?"),
                 p("The reason why people might find a negative association between friendliness and quality of the haircut
                 is because of the underlying selection mechanisms. Remember, we selected a hairsalon based on a good rating in terms of online
                 reviews. There are basically two reasons why customers rate a hair salon high: Either the hairdresser was
