@@ -45,21 +45,32 @@ shinyUI(
                 How do you choose your hairdresser? Many people look at online reviews
                 and go only to top-rated hair salons and then realize: Why are hairdressers never
                 friendly and bad at the same time? Should I better not trust a friendly hairdresser?"),
-                h2("Better Don't Trust a Friendly Hairdresser?"),
-                p("The reason why people might find a negative association between friendliness and quality of the haircut
-                is because of the underlying selection mechanisms. Remember, we selected a hairsalon based on a good rating in terms of online
-                reviews. There are basically two reasons why customers rate a hair salon high: Either the hairdresser was
-                a very nice person and customers enjoyed the conversations with him/her or she/he gave a good haircut.
-                These selection mechanism lead to the unexpected correlation, which we can confirm in a simulated data example."),
-                h3("Data Simulation"),
-                p("In this app, we simulate a dataset representing customer experiences in hairdressing salons. 
-                  The variables 'Friendliness' and 'Quality of Haircut' capture the friendliness of staff 
-                  and the quality of haircuts, respectively. The star ratings are derived based on 
-                  these factors, providing a comprehensive view of customer satisfaction."),
-                h3("Scatter plot and Regression"),
-                p("The scatterplot visualizes the relationship between friendliness and haircut quality. 
-                  Users typically only look at top ratings. The accompanying regression line helps distinguish the overall 
-                  trend within the selected subset, helping us in the interpretation of the data."),
+                
+                # Left column: Text
+                fluidRow(
+                  column(
+                    width = 7,
+                    h2("Better Don't Trust a Friendly Hairdresser?"),
+                    p("The reason why people might find a negative association between friendliness and quality of the haircut
+                    is because of the underlying selection mechanisms. Remember, we selected a hairsalon based on a good rating in terms of online
+                    reviews. There are basically two reasons why customers rate a hair salon high: Either the hairdresser was
+                    a very nice person and customers enjoyed the conversations with him/her or she/he gave a good haircut.
+                    These selection mechanism lead to the unexpected correlation, which we can confirm in a simulated data example."),
+                    h3("Data Simulation"),
+                    p("In this app, we simulate a dataset representing customer experiences in hairdressing salons. 
+                      The variables 'Friendliness' and 'Quality of Haircut' capture the friendliness of staff 
+                      and the quality of haircuts, respectively. The star ratings are derived based on 
+                      these factors, providing a comprehensive view of customer satisfaction."),
+                    h3("Scatter plot and Regression"),
+                    p("The scatterplot visualizes the relationship between friendliness and haircut quality. 
+                      Users typically only look at top ratings. The accompanying regression line helps distinguish the overall 
+                      trend within the selected subset, helping us in the interpretation of the data.")
+                  ),
+                column(
+                  width = 5,
+                  img(src = "meme_hairdresser.jpg", style = "max-width:100%; height:auto;")
+                )
+                ),
                 h3("Directed Acyclic Graph (DAG) and Collider Bias"),
                 p("This DAG illustrates the causal relationships between friendliness (F), star ratings (S), 
                   and haircut quality (Q). The DAG helps users understand the pathways through which these variables are 
