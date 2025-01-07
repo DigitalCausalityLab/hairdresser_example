@@ -132,7 +132,8 @@ shinyUI(
         ),
         tabItem(tabName = "references",
                 h2("References"),
-                p("Duman, Alper and Kabiri, Amir, 2023. “Collider Bias: The Hairdresser Example.” A student project for the Digital Causality Lab.")
+                p("Duman, Alper and Kabiri, Amir, 2023. “Collider Bias: The Hairdresser Example.” A student project for the Digital Causality Lab."),
+                p("The images in the meme have been generated using DALL-E.")
       )
     )
   )
