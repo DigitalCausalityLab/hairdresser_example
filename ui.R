@@ -49,7 +49,7 @@ shinyUI(
                 # Left column: Text
                 fluidRow(
                   column(
-                    width = 7,
+                    width = 8,
                     h2("Better Don't Trust a Friendly Hairdresser?"),
                     p("The reason why people might find a negative association between friendliness and quality of the haircut
                     is because of the underlying selection mechanisms. Remember, we selected a hairsalon based on a good rating in terms of online
@@ -66,10 +66,10 @@ shinyUI(
                       Users typically only look at top ratings. The accompanying regression line helps distinguish the overall 
                       trend within the selected subset, helping us in the interpretation of the data.")
                   ),
-                column(
-                  width = 5,
-                  img(src = "meme_hairdresser.jpg", style = "max-width:100%; height:auto;")
-                )
+                  column(
+                    width = 4,
+                    img(src = "meme_hairdresser.jpg", style = "max-width:70%; height:auto;")
+                  )
                 ),
                 h3("Directed Acyclic Graph (DAG) and Collider Bias"),
                 p("This DAG illustrates the causal relationships between friendliness (F), star ratings (S), 
